@@ -1,0 +1,146 @@
+/*
+Colours, from: https://github.com/joshdick/onedark.vim
+- Black:  #282c34
+- Red:    #e06c75
+- Green:  #98c379
+- Yellow: #e5c07b
+- Blue:   #61afef
+- Purple: #c678dd
+- Aqua:   #56b6c2
+- Grey:   #abb2bf
+*/
+
+/* --------------------------------- Global --------------------------------- */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p, h1, h2, h3 {
+    color: #abb2bf;
+    font-family: 'Roboto Mono', monospace;
+}
+
+p {
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+/* -------------------------------- Screens --------------------------------- */
+
+.screen {
+    margin: 0;
+    padding: 32px;
+    background-color: black;
+    height: calc(100vh - 64px); /* fills the viewport height */
+}
+
+.screen:nth-child(even) {
+    background-color: whitesmoke;
+}
+
+.screen:nth-child(even) h2 {
+    color: #333333;
+}
+
+#title-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-me-screen {
+    height: 50vh;
+}
+
+.split-view {
+    display: flex;
+    justify-content: space-between;
+}
+
+.split-view > * {
+    width: calc(50% - 16px); /* gives a 32px margin between columns */
+}
+
+/* -------------------------------- Windows --------------------------------- */
+
+.window {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+.file-tag-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.file-tag {
+    color: #abb2bf;
+    font-family: 'Roboto Mono', monospace;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+    background-color: #282c34;
+    border: none;
+    margin: 0;
+    font-size: smaller;
+    padding: 0 16px;
+    width: fit-content;
+    height: 2.5em;
+}
+
+.file-tag:hover {
+    background-color: #4c5058;
+}
+
+.selected-file-tag {
+    box-shadow: inset 0 -3px 0 #61afef;
+}
+
+.file-contents {
+    background-color: #282c34;
+    padding: 0 16px;
+    font-size: 1em;
+    display: none;
+    max-height: calc(100vh - 80px - 4em);
+    overflow: scroll;
+}
+
+.selected-file-contents, .selected-image {
+    display: block;
+}
+
+/* -------------------------------- Images ---------------------------------- */
+
+.image-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img {
+    height: calc(50% - 16px); /* for 32px margin between images */
+    object-fit: scale-down;
+    display: none;
+}
+
+#about-me-screen img {
+    height: 100%;
+    border-radius: 50%;
+}
+
